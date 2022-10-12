@@ -10,8 +10,8 @@ import os.path
 from KNearestNeighbor_class import KNearestNeighbor
 
 
-Dataset_path = 'E:/Masters/Semester 3/DEEP LEARNING/KNN For Image Classification/Horses_Duck_Dataset'
-Prediction_files_path = 'E:/Masters/Semester 3/DEEP LEARNING/KNN For Image Classification/Horses_Duck_Dataset/Prediction Images'
+Dataset_path = '/training_dataset_path/'                            # Provide the path of the directory containing all the training images.
+Prediction_files_path = '/testing_images_directory_path/'           # Provide the path of the directory containing all the testing images 
 labels = ["Horse","Duck" ]
 
 
@@ -100,7 +100,7 @@ def prediction_function(image_name):
     classifier = KNearestNeighbor()
     classifier.train(X_train, y_train)
     dists_L2 = classifier.compute_distances(img_pred)
-    y_test_pred = classifier.predict_labels(dists_L2, k=3)
+    y_test_pred = classifier.predict_labels(dists_L2, k=3)                                    # k=3 is giving best performance on this limited data
     print('Predicted '+image_name + ' as a ' + labels[int(y_test_pred)])
 
 
